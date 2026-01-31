@@ -1,10 +1,12 @@
 #define ledpin 8
 #define buttonpin 7
+
 void setup() 
 {
   Serial.begin(115200);
   pinMode(ledpin,OUTPUT);
   pinMode(buttonpin,INPUT);
+
   digitalWrite(ledpin,LOW);
 }
 
@@ -21,6 +23,7 @@ void loop()
     Serial.println("Led is off");
     delay(1500);
   }
+
   else
   {
     digitalWrite(ledpin,LOW);
