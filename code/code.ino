@@ -16,12 +16,14 @@ void loop()
 
   if(in==HIGH)
   {
-    digitalWrite(ledpin,HIGH);
-    Serial.println("Led is on");
+    digitalWrite(ledpin, HIGH);
+    Serial.println("LED ON");
     delay(1000);
+
     digitalWrite(ledpin,LOW);
-    Serial.println("Led is off");
+    Serialprintln("LED OFF");
     delay(1500);
+
   }
 
   else
