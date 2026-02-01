@@ -1,6 +1,8 @@
 #define ledpin 8
 #define buttonpin 7
-int c=0;
+bool flag=false;
+int prev_state=LOW; 
+int speed=1000;
 void setup() 
 {
   Serial.begin(115200);
@@ -12,28 +14,30 @@ void setup()
 
 void loop() 
 {
-  int in=digitalRead(buttonpin);
-  if(in==HIGH)
+  int rn_state=digitalRead(buttonpin);
+  if(rn_state==HIGH && prev_state==LOW)
   {
-    c++;
-    delay(250);
-  }
+    //flag needs to be opposite of what it was
+    if(flag==true)
+    flag=false;
+    else
+    flag=true;
 
-  if(c%2!=0)
+  }
+  prev_state=rn_state;
+  if(flag==true)
   {
     digitalWrite(ledpin, HIGH);
     Serial.println("LED ON");
-    delay(1000);
-
+    delay(speed);
     digitalWrite(ledpin,LOW);
     Serial.println("LED OFF");
-    delay(1500);
-
+    delay(speed);
   }
-
   else
   {
     digitalWrite(ledpin,LOW);
-    Serial.println("Led is off");
+    Serial.println("BLINK OFF");
   }
+  
 }
