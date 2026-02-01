@@ -1,4 +1,6 @@
-Initial commit is the defualt code in Arduino.
+**The question was a little vauge, so this is my take- we need to create a toggle such that when button is pressed once and then relased, the led starts blinking and when it is pressed again and then relased, the led stops blinking.**
+
+**Initial** commit is the defualt code in Arduino.
 V1 commit is for my original thought. This code would work well with a switch. When switch is on, the led blinks, when it is off led is off. 
 The output for this code is attached. 
 **The logic for V1**-
@@ -14,3 +16,7 @@ First we start by define the pins as per the connections made.
 The setup() fuction sets LED pin as OUTPUT and BUTTON (switch here) as INPUT. We set LED to off initially.
 In the loop() fuction, first we read the input of button using digitalRead(). When the button is pressed, the in is HIGH but as soon as it is relased it goes back to low. So when the button is HIGH we increment the counter. A delay is added here to ensure stable and single inputs. 
 if (c % 2 != 0) checks if the counter is odd, if yes then LED starts blinking using delay(), if not it is turned off. 
+
+
+
+
